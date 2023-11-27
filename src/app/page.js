@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './page.module.css';
 import Button from '../components/Button';
 
@@ -15,7 +16,11 @@ export default function Main() {
         Choose a city from the list below to check the weather.
       </p>
       <div className={styles.buttonsContainer}>
-        {cities.map(city => <Button key={city} text={city} />)}
+        {cities.map(city => (
+          <Link key={city} href={`/${city}`} passHref>
+            <a><Button text={city} /></a>
+          </Link>
+        ))}
       </div>
       <div className={styles.imageContainer}>
         <Image
