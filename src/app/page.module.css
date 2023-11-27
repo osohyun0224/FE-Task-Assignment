@@ -46,3 +46,9 @@
   gap: 10px;
   margin-top: 20px;
 }
+
+.imageContainer {
+  margin-top: 50px;
+  display: flex; 
+  justify-content: center; 
+}
