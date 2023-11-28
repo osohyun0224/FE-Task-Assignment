@@ -14,14 +14,17 @@ const DropdownComponent = ({ forecastData }) => {
   };
 
   const getUniqueDates = (forecast) => {
+    const today = new Date().toDateString();
     const uniqueDates = [];
+    
     forecast.forEach((item) => {
       const date = new Date(item.dt_txt).toDateString();
-      if (uniqueDates.indexOf(date) === -1) {
+      if (date !== today && uniqueDates.indexOf(date) === -1) {
         uniqueDates.push(date);
       }
     });
-    return uniqueDates;
+
+    return uniqueDates.slice(0, 5);
   };
 
   const formattedDates = getUniqueDates(forecastData);
