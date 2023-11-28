@@ -1,5 +1,5 @@
 .pageContainer {
-  background-color: #FFFFFF;
+  background-color: #FAF7F5;
   min-height: 100vh;
 }
 
@@ -23,7 +23,6 @@
 .headerContainer {
   width: 1200px;
   height: 140px;
-  border: 1px solid black;
   margin-top: 40px;
   margin-left: 100px;
 }

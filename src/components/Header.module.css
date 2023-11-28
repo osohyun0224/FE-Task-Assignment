@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   width: 1200px;
   height: 140px;
   border-radius: 6px;
@@ -9,11 +10,13 @@
   justify-content: space-between;
   padding: 0 20px;
 }
+
 .weatherIcon {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .info {
   display: flex;
   flex-direction: column;
@@ -31,6 +34,7 @@
   font-size: 24px;
   line-height: 26px;
 }
+
 .location {
   font-family: 'Pretendard', sans-serif;
   font-size: 36px;
@@ -38,11 +42,13 @@
   line-height: 40px;
   color: #3D3D3D;
 }
+
 .population {
   font-size: 14px;
   line-height: 15px;
   color: #8B8B8B;
 }
+
 .temperature {
   font-family: 'Pretendard', sans-serif;
   font-size: 50px;
@@ -51,6 +57,7 @@
   color: #3D3D3D;
   text-align: center;
 }
+
 .feelsLike {
   font-family: Pretendard;
   font-size: 14px;
