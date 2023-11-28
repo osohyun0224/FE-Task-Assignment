@@ -14,24 +14,26 @@ const DropdownComponent = ({ forecastData }) => {
   };
 
   const getUniqueDates = (forecast) => {
-    const today = new Date().toDateString();
+    const today = new Date();
     const uniqueDates = [];
-
+  
     forecast.forEach((item) => {
-      const date = new Date(item.dt_txt);
-      const formattedDate = date.toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-      });
-      const dateString = date.toDateString();
-
-      if (dateString !== today && uniqueDates.indexOf(formattedDate) === -1) {
-        uniqueDates.push(formattedDate);
+      const forecastDate = new Date(item.dt_txt);
+      if (forecastDate > today) {
+        const formattedDate = forecastDate.toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+        });
+  
+        if (uniqueDates.indexOf(formattedDate) === -1) {
+          uniqueDates.push(formattedDate);
+        }
       }
     });
-
+  
     return uniqueDates.slice(0, 5);
   };
+  
 
   const formattedDates = getUniqueDates(forecastData);
 
