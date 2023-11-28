@@ -41,6 +41,27 @@
   --card-border-rgb: 131, 134, 135;
 }
 
+@media (min-width: 1280px) {
+  body {
+    max-width: 1280px;
+    margin: auto;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1279px) {
+  body {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 799px) {
+  body {
+    min-width: 800px;
+    overflow-x: auto;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
