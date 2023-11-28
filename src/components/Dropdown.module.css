@@ -1,7 +1,7 @@
 .dropdownContainer {
   position: relative;
   width: 1200px;
-  height: 480px;
+  height: auto; 
   border-radius: 6px;
   border: 1px solid #DFDFDF;
   background-color: #FFFFFF;
@@ -25,19 +25,19 @@
 
 .items {
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #DFDFDF;
-  justify-content: space-between;
   width: 100%;
-  height: 110px; 
+  height: 110px;
 }
 
-.item:last-child {
+.dropdownContent:last-child {
   border-bottom: none;
 }
 
@@ -60,7 +60,7 @@
   border-radius: 6px;
   border: 0px 1px 0px 1px;
   border-style: solid;
-  border-color: #DFDFDF;
+  border-bottom: 1px solid #DFDFDF; 
   display: flex;
   align-items: center;
   margin-left: 0px;
