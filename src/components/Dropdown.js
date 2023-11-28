@@ -18,9 +18,15 @@ const DropdownComponent = ({ forecastData }) => {
     const uniqueDates = [];
 
     forecast.forEach((item) => {
-      const date = new Date(item.dt_txt).toDateString();
-      if (date !== today && uniqueDates.indexOf(date) === -1) {
-        uniqueDates.push(date);
+      const date = new Date(item.dt_txt);
+      const formattedDate = date.toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+      });
+      const dateString = date.toDateString();
+
+      if (dateString !== today && uniqueDates.indexOf(formattedDate) === -1) {
+        uniqueDates.push(formattedDate);
       }
     });
 
@@ -54,7 +60,14 @@ const DropdownComponent = ({ forecastData }) => {
             </div>
             {openIndex === index &&
               forecastData
-                .filter((item) => new Date(item.dt_txt).toDateString() === date)
+                .filter((item) => {
+                  const itemDate = new Date(item.dt_txt);
+                  const formattedItemDate = itemDate.toLocaleDateString(
+                    "en-US",
+                    { month: "short", day: "numeric" }
+                  );
+                  return formattedItemDate === date;
+                })
                 .map((weather, idx) => (
                   <div key={idx} className={styles.dropdownContent}>
                     <Image
