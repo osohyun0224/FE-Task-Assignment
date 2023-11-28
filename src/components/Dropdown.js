@@ -3,9 +3,17 @@ import styles from './Dropdown.module.css';
 import Image from 'next/image';
 
 const DropdownComponent = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [openIndex, setOpenIndex] = useState(null);
 
   const dates = ["May 24", "May 25", "May 26", "May 27", "May 28"];
+
+  const toggleDropdown = (index) => {
+    if (openIndex === index) {
+      setOpenIndex(null);
+    } else {
+      setOpenIndex(index);
+    }
+  };
 
   return (
     <div className={styles.dropdownContainer}>
@@ -14,17 +22,19 @@ const DropdownComponent = () => {
       </div>
       <div className={styles.items}>
         {dates.map((date, index) => (
-          <div key={index} className={styles.item}>
-            <div className={styles.date}>{date}</div>
-            <div className={styles.toggleButton} onClick={() => setIsOpen(!isOpen)}>
-              <Image
-                src={isOpen ? "/public/image/DownIcons.png" : "/public/image/UpIcons.png"}
-                alt="Toggle Icon"
-                width={24}
-                height={24}
-              />
+          <React.Fragment key={index}>
+            <div className={styles.item} onClick={() => toggleDropdown(index)}>
+              <div className={styles.date}>{date}</div>
+              <div className={styles.toggleButton}>
+                <Image
+                  src={openIndex === index ? "/public/image/DownIcons.png" : "/public/image/UpIcons.png"}
+                  alt="Toggle Icon"
+                  width={24}
+                  height={24}
+                />
+              </div>
             </div>
-            {isOpen && (
+            {openIndex === index && (
               <div className={styles.dropdownContent}>
                 <Image
                   src="/public/image/WeatherIcons.png"
@@ -38,12 +48,11 @@ const DropdownComponent = () => {
                 <div className={styles.temperature}>22℃</div>
               </div>
             )}
-          </div>
+          </React.Fragment>
         ))}
       </div>
     </div>
   );
 };
-
 
 export default DropdownComponent;
