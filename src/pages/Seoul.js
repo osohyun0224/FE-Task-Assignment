@@ -18,6 +18,8 @@ export default function Seoul() {
     weatherIconUrl: '',
   });
 
+  const [forecastData, setForecastData] = useState([]);
+
   useEffect(() => {
     const fetchWeather = async () => {
       const url = `https://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}&units=metric`;
@@ -41,7 +43,23 @@ export default function Seoul() {
         console.error("날씨 데이터를 불러오지 못했습니다.", error);
       }
     };
+
+    const fetchForecast = async () => {
+      const url = `https://api.openweathermap.org/data/2.5/forecast?q=Seoul&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}&units=metric`;
+      try {
+        const response = await axios.get(url);
+        const updatedForecast = response.data.list.map(item => ({
+          ...item,
+          weatherIconUrl: `https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`
+        }));
+        setForecastData(updatedForecast);
+      } catch (error) {
+        console.error("예보 데이터를 불러오지 못했습니다.", error);
+      }
+    };
+
     fetchWeather();
+    fetchForecast();
   }, []);
 
   return (
@@ -59,7 +77,7 @@ export default function Seoul() {
       <div className={styles.headerContainer}>
         <Header {...weatherData} />
       </div>
-      <Dropdown/> 
+      <Dropdown forecastData={forecastData} /> 
     </div>
-  );  
+  );
 }
