@@ -1,0 +1,98 @@
+.dropdownContainer {
+  position: relative;
+  width: 1200px;
+  height: 480px;
+  border-radius: 6px;
+  border: 1px solid #DFDFDF;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+  margin-left: 100px;
+  margin-top: 20px;
+}
+
+.header {
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid #DFDFDF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+}
+
+.items {
+  width: 100%;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #DFDFDF;
+  justify-content: space-between;
+  width: 100%;
+  height: 110px; 
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.toggleButton img {
+  width: 24px;
+  height: 24px;
+}
+
+.date {
+  color: #000000;
+}
+
+.toggleButton {
+  cursor: pointer;
+}
+
+.dropdownContent {
+  width: 1240px; 
+  height: 110px;
+  border-radius: 6px;
+  border: 0px 1px 0px 1px;
+  border-style: solid;
+  border-color: #DFDFDF;
+  display: flex;
+  align-items: center;
+  margin-left: -190px;
+  justify-content: space-between;
+  width: 100%; 
+}
+
+
+.weatherIcon {
+  border-radius: 50%;
+}
+
+.time {
+  font-family: Pretendard;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 33px;
+  color: #555555;
+}
+
+.weatherText {
+  font-family: Pretendard;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  color: #8B8B8B;
+}
+
+.temperature {
+  font-family: Pretendard;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 33px;
+  color: #3D3D3D;
+}

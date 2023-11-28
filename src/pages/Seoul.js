@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Image from 'next/image';
 import styles from './Seoul.module.css';
 import axios from 'axios';
+import Dropdown from '../components/Dropdown';
 
 export default function Seoul() {
   const [weatherData, setWeatherData] = useState({
@@ -40,7 +41,6 @@ export default function Seoul() {
         console.error("날씨 데이터를 불러오지 못했습니다.", error);
       }
     };
-
     fetchWeather();
   }, []);
 
@@ -59,6 +59,7 @@ export default function Seoul() {
       <div className={styles.headerContainer}>
         <Header {...weatherData} />
       </div>
+      <Dropdown/> 
     </div>
   );  
 }
