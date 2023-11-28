@@ -3,6 +3,7 @@ import styles from './Header.module.css';
 import Image from 'next/image';
 
 const Header = ({ date, location, population, temperature }) => {
+
   return (
     <div className={styles.header}>
       <div className={styles.weatherIcon}>
