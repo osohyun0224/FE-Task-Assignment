@@ -3,6 +3,27 @@
   min-height: 100vh;
 }
 
+@media (min-width: 1280px) {
+  .headerContainer {
+    width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1279px) {
+  .headerContainer {
+    width: 100%; 
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 799px) {
+  .headerContainer {
+    min-width: 800px;
+    overflow-x: auto;
+  }
+}
+
 .imageContainer {
   margin-top: 50px;
   display: flex; 
@@ -23,6 +44,6 @@
 .headerContainer {
   width: 1200px;
   height: 140px;
-  margin-top: 40px;
+  margin-top: 50px;
   margin-left: 100px;
 }
