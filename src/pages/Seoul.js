@@ -27,8 +27,17 @@ export default function Seoul() {
         const response = await axios.get(url);
         const data = response.data;
         const weatherIconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+
+        const date = new Date(data.dt * 1000).toLocaleString("en-US", {
+          month: 'short',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: '2-digit',
+          hour12: true
+        });
+    
         const newWeatherData = {
-          date: new Date(data.dt * 1000).toLocaleString(),
+          date,
           location: data.name,
           population: '9776000',
           temperature: data.main.temp.toFixed(1),
