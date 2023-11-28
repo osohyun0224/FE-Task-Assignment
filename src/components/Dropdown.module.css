@@ -68,7 +68,6 @@
   width: 100%; 
 }
 
-
 .weatherIcon {
   border-radius: 50%;
 }
@@ -79,6 +78,7 @@
   font-weight: 700;
   line-height: 33px;
   color: #555555;
+  margin-left: -340px;
 }
 
 .weatherText {
@@ -87,6 +87,8 @@
   font-weight: 600;
   line-height: 28px;
   color: #8B8B8B;
+  margin-left: 300px;
+  margin-right: -280px;
 }
 
 .temperature {

@@ -65,14 +65,20 @@ const DropdownComponent = ({ forecastData }) => {
                       className={styles.weatherIcon}
                     />
                     <div className={styles.time}>
-                      {new Date(weather.dt_txt).toLocaleTimeString()}
+                      {new Date(weather.dt_txt)
+                        .toLocaleTimeString("en-US", {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                          hour12: true,
+                        })
+                        .toLowerCase()}
                     </div>
                     <div className={styles.weatherText}>
                       {weather.weather[0].description}
                     </div>
-                    <div
-                      className={styles.temperature}
-                    >{`${weather.main.temp.toFixed(1)}℃`}</div>
+                    <div className={styles.temperature}>
+                      {`${weather.main.temp.toFixed(1)}℃`}
+                    </div>
                   </div>
                 ))}
           </React.Fragment>
