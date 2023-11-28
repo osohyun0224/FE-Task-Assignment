@@ -44,7 +44,7 @@
   - [ ] 2-1. Apollo 서버 구축 및 GraphQL 스키마 정의
   - [ ] 2-2. GraphQL 쿼리 및 뮤테이션 정의
 - [ ] 3. Open Weather API 데이터 요청 및 파싱
-  - [ ] 3-1. 현재 날씨 데이터 요청 구현 (Current Weather API 사용)
+  - [ ] 3-1. 현재 날씨 데이터 요청 구현 (Current Weather API 사용) ```Header```
   - [ ] 3-2. 5일 예보 데이터 요청 구현 (3-hour Forecast 5 days API 사용)
   - [ ] 3-3. 받은 데이터를 GraphQL 쿼리에 맞게 파싱 및 반환
 - [ ] 4. 클라이언트와 백엔드 간 API 연동

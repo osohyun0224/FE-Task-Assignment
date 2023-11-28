@@ -1,0 +1,29 @@
+.pageContainer {
+  background-color: #FFFFFF;
+}
+
+.imageContainer {
+  position: absolute;
+  top: 43px;
+  left: 606px;
+}
+
+.title {
+  font-family: Pretendard;
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 44px;
+  letter-spacing: -0.6px;
+  text-align: center;
+  color: #3D3D3D;
+  margin-top: 100px;
+}
+
+.headerContainer {
+  width: 1200px;
+  height: 140px;
+  position: absolute;
+  top: 188px;
+  left: 40px;
+  border: 1px solid black;
+}
