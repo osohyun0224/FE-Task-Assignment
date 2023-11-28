@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import styles from './Dropdown.module.css';
-import Image from 'next/image';
+import React, { useState } from "react";
+import styles from "./Dropdown.module.css";
+import Image from "next/image";
 
 const DropdownComponent = ({ forecastData }) => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -16,7 +16,7 @@ const DropdownComponent = ({ forecastData }) => {
   const getUniqueDates = (forecast) => {
     const today = new Date().toDateString();
     const uniqueDates = [];
-    
+
     forecast.forEach((item) => {
       const date = new Date(item.dt_txt).toDateString();
       if (date !== today && uniqueDates.indexOf(date) === -1) {
@@ -41,30 +41,40 @@ const DropdownComponent = ({ forecastData }) => {
               <div className={styles.date}>{date}</div>
               <div className={styles.toggleButton}>
                 <Image
-                  src={openIndex === index ? "/public/image/DownIcons.png" : "/public/image/UpIcons.png"}
+                  src={
+                    openIndex === index
+                      ? "/image/DownIcons.png"
+                      : "/image/UpIcons.png"
+                  }
                   alt="Toggle Icon"
                   width={24}
                   height={24}
                 />
               </div>
             </div>
-            {openIndex === index && forecastData
-              .filter(item => new Date(item.dt_txt).toDateString() === date)
-              .map((weather, idx) => (
-                <div key={idx} className={styles.dropdownContent}>
-                  <Image
-                    src={weather.weatherIconUrl}
-                    alt="Weather Icon"
-                    width={60}
-                    height={60}
-                    className={styles.weatherIcon}
-                  />
-                  <div className={styles.time}>{new Date(weather.dt_txt).toLocaleTimeString()}</div>
-                  <div className={styles.weatherText}>{weather.weather[0].description}</div>
-                  <div className={styles.temperature}>{`${weather.main.temp.toFixed(1)}℃`}</div>
-                </div>
-              ))
-            }
+            {openIndex === index &&
+              forecastData
+                .filter((item) => new Date(item.dt_txt).toDateString() === date)
+                .map((weather, idx) => (
+                  <div key={idx} className={styles.dropdownContent}>
+                    <Image
+                      src={weather.weatherIconUrl}
+                      alt="Weather Icon"
+                      width={60}
+                      height={60}
+                      className={styles.weatherIcon}
+                    />
+                    <div className={styles.time}>
+                      {new Date(weather.dt_txt).toLocaleTimeString()}
+                    </div>
+                    <div className={styles.weatherText}>
+                      {weather.weather[0].description}
+                    </div>
+                    <div
+                      className={styles.temperature}
+                    >{`${weather.main.temp.toFixed(1)}℃`}</div>
+                  </div>
+                ))}
           </React.Fragment>
         ))}
       </div>
