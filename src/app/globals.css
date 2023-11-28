@@ -17,6 +17,7 @@
     #0071ff33 160deg,
     transparent 360deg
   );
+
   --secondary-glow: radial-gradient(
     rgba(255, 255, 255, 1),
     rgba(255, 255, 255, 0)
@@ -93,7 +94,8 @@ body {
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #000000; 
+    background-color: #FFFFFF;
+    color: rgb(var(--foreground-rgb));
   }
 }
 
@@ -101,4 +103,3 @@ a {
   color: inherit;
   text-decoration: none;
 }
-

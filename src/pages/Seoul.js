@@ -26,6 +26,6 @@ export default function Seoul() {
         <Header {...weatherData} />
       </div>
     </div>
-  );
+  );  
 }
 
