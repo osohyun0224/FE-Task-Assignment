@@ -24,7 +24,7 @@ export default function Seoul() {
     const fetchData = async () => {
       const weatherResponse = await fetchWeather('Seoul');
       if (weatherResponse) {
-        // 날씨 데이터 처리
+
         const weatherIconUrl = `https://openweathermap.org/img/wn/${weatherResponse.weather[0].icon}@2x.png`;
 
         const date = new Date(weatherResponse.dt * 1000).toLocaleString("en-US", {
