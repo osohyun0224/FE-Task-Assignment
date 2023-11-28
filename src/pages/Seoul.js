@@ -1,17 +1,41 @@
+import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Image from 'next/image';
 import styles from './Seoul.module.css';
+import axios from 'axios';
 
 export default function Seoul() {
-  const weatherData = {
-    date: 'May 23. 03:00am',
-    location: 'Seoul, KR',
+  const [weatherData, setWeatherData] = useState({
+    date: '',
+    location: '',
     population: '10000000',
-    temperature: '292.98',
-    feekslike:'Feels like 291.91℃ clear sky 풍속 3.33m/s 습도 34%',
-  };
+    temperature: '',
+    feelsLike: '',
+    weatherDescription: '',
+  });
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=seoul&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`;
+  useEffect(() => {
+    const fetchWeather = async () => {
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}&units=metric`;
+      try {
+        const response = await axios.get(url);
+        const data = response.data;
+        const newWeatherData = {
+          date: new Date(data.dt * 1000).toLocaleString(),
+          location: data.name,
+          population: '10000000',
+          temperature: data.main.temp.toFixed(1),
+          feelsLike: `Feels like ${data.main.feels_like.toFixed(1)}℃`,
+          weatherDescription: data.weather[0].description,
+        };
+        setWeatherData(newWeatherData);
+      } catch (error) {
+        console.error("날씨 데이터를 불러오지 못했습니다.", error);
+      }
+    };
+
+    fetchWeather();
+  }, []);
 
   return (
     <div className={styles.pageContainer}>

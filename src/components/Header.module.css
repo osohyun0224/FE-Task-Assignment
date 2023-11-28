@@ -57,3 +57,13 @@
   color: #3D3D3D;
   text-align: center;
 }
+
+.feelsLike {
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.6px;
+  text-align: left;
+  color: #8B8B8B;
+}

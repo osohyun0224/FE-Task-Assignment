@@ -2,12 +2,11 @@ import React from 'react';
 import styles from './Header.module.css';
 import Image from 'next/image';
 
-const Header = ({ date, location, population, temperature }) => {
-
+const Header = ({ date, location, population, temperature, feelsLike }) => {
   return (
     <div className={styles.header}>
       <div className={styles.weatherIcon}>
-      <Image
+        <Image
           src="/image/WeatherIcons.png" 
           alt="Weather Icons"
           width={80} 
@@ -22,6 +21,7 @@ const Header = ({ date, location, population, temperature }) => {
       </div>
       <div className={styles.temperature}>
         {temperature}℃
+        <p className={styles.feelsLike}>{feelsLike}</p>
       </div>
     </div>
   );
