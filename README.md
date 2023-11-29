@@ -12,8 +12,8 @@
 1. 리포지토리를 클론하고 클론한 디렉토리에 들어갑니다.
 
 ```bash
-git clone https://github.com/osohyun0224/FE-Task-Assaginment
-cd FE-Task-Assaginment
+git clone https://github.com/osohyun0224/FE-Task-Assignment
+cd FE-Task-Assignment
 ```
 
 2. 다음의 명렁어를 실행하여 프로젝트를 실행합니다.
@@ -30,7 +30,7 @@ npm run dev
 
 ## 📚 기능 구현 목록 작성
 
-- 기능을 구현하기 전 [docs/README.md](https://github.com/osohyun0224/FE-Task-Assaginment/tree/master/docs)에 구현할 기능 목록을 정리하였습니다.
+- 기능을 구현하기 전 [docs/README.md](https://github.com/osohyun0224/FE-Task-Assignment/tree/master/docs)에 구현할 기능 목록을 정리하였습니다.
 > 과제를 수행하면서 지속적으로 기능 구현 목록을 업데이트하고, 커밋의 단위를 앞 단계에서 ```docs/README.md```에 정리한 기능 목록 단위로 추가하도록 노력하였습니다.
 
 > 기능 구현 목록에는 구현하면서 고찰한 내용, 구현 목표가 작성되어있습니다.
