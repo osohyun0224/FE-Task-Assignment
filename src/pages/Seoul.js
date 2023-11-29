@@ -1,30 +1,64 @@
-import React, { useEffect } from "react";
-import { useQuery } from '@apollo/client';
-import { GET_CURRENT_WEATHER, GET_FORECAST } from '../graphql/queries';
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Image from "next/image";
 import styles from "./Seoul.module.css";
 import Dropdown from "../components/Dropdown";
+import { fetchWeather, fetchForecast } from "../api/api";
 
 export default function Seoul() {
-  const {
-    data: weatherData,
-    loading: weatherLoading,
-    error: weatherError,
-  } = useQuery(GET_CURRENT_WEATHER, { variables: { city: 'Seoul' } });
+  const [weatherData, setWeatherData] = useState({
+    date: "",
+    location: "",
+    population: "9776000",
+    temperature: "",
+    feelsLike: "",
+    weatherDescription: "",
+    windSpeed: "",
+    humidity: "",
+    weatherIconUrl: "",
+  });
 
-  const {
-    data: forecastData,
-    loading: forecastLoading,
-    error: forecastError,
-  } = useQuery(GET_FORECAST, { variables: { city: 'Seoul' } });
+  const [forecastData, setForecastData] = useState([]);
 
-  if (weatherLoading || forecastLoading) return <p>Loading...</p>;
-  if (weatherError) return <p>Error in weather data: {weatherError.message}</p>;
-  if (forecastError) return <p>Error in forecast data: {forecastError.message}</p>;
+  useEffect(() => {
+    const fetchData = async () => {
+      const weatherResponse = await fetchWeather("Seoul");
+      if (weatherResponse) {
+        const weatherIconUrl = `https://openweathermap.org/img/wn/${weatherResponse.weather[0].icon}@2x.png`;
 
-  const currentWeather = weatherData?.getCurrentWeather;
-  const forecast = forecastData?.getForecast;
+        const date = new Date(weatherResponse.dt * 1000).toLocaleString(
+          "en-US",
+          {
+            month: "short",
+            day: "numeric",
+            hour: "numeric",
+            minute: "2-digit",
+            hour12: true,
+          },
+        );
+
+        const newWeatherData = {
+          date,
+          location: weatherResponse.name,
+          population: "9776000",
+          temperature: weatherResponse.main.temp.toFixed(1),
+          feelsLike: `Feels like ${weatherResponse.main.feels_like.toFixed(
+            1,
+          )}℃`,
+          weatherDescription: weatherResponse.weather[0].description,
+          windSpeed: `풍속 ${weatherResponse.wind.speed} m/s`,
+          humidity: `습도 ${weatherResponse.main.humidity}%`,
+          weatherIconUrl,
+        };
+        setWeatherData(newWeatherData);
+      }
+
+      const forecastResponse = await fetchForecast("Seoul");
+      setForecastData(forecastResponse);
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className={styles.pageContainer}>
@@ -39,9 +73,9 @@ export default function Seoul() {
       </div>
       <h1 className={styles.title}>Weather Information for Seoul</h1>
       <div className={styles.headerContainer}>
-        <Header {...currentWeather} />
+        <Header {...weatherData} />
       </div>
-      <Dropdown forecastData={forecast} />
+      <Dropdown forecastData={forecastData} />
     </div>
   );
 }
