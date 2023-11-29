@@ -13,7 +13,7 @@ const Header = ({
   weatherIconUrl,
 }) => {
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       <div className={styles.weatherIcon}>
         <Image
           src={weatherIconUrl || "/image/default-icon.png"}
@@ -24,7 +24,7 @@ const Header = ({
         />
       </div>
       <div className={styles.info}>
-        <p className={styles.date}>{date}</p>
+        <time className={styles.date}>{date}</time>
         <h2 className={styles.location}>{location}</h2>
         <p className={styles.population}>{`(인구수: ${population})`}</p>
         <p className={styles.weatherDescription}>{weatherDescription}</p>
@@ -39,7 +39,7 @@ const Header = ({
           <p className={styles.additionalInfo}>{humidity}</p>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

@@ -75,22 +75,24 @@ const WeatherPage = ({ city }) => {
   }, [city]);
 
   return (
-    <div className={styles.pageContainer}>
-      <div className={styles.imageContainer}>
-        <Image
-          src="/image/img.png"
-          alt="Main Background"
-          width={68}
-          height={51}
-          layout="intrinsic"
-        />
-      </div>
-      <h1 className={styles.title}>Weather Information for {city}</h1>
+    <main className={styles.pageContainer}>
+      <header>
+        <div className={styles.imageContainer}>
+          <Image
+            src="/image/img.png"
+            alt="Main Background"
+            width={68}
+            height={51}
+            layout="intrinsic"
+          />
+        </div>
+        <h1 className={styles.title}>Weather Information for {city}</h1>
+      </header>
       <div className={styles.headerContainer}>
         <Header {...weatherData} />
       </div>
       <Dropdown forecastData={forecastData} />
-    </div>
+    </main>
   );
 };
 

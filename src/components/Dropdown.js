@@ -25,7 +25,7 @@ const DropdownComponent = ({ forecastData }) => {
           day: "numeric",
         });
 
-        if (uniqueDates.indexOf(formattedDate) === -1) {
+        if (!uniqueDates.includes(formattedDate)) {
           uniqueDates.push(formattedDate);
         }
       }
@@ -37,37 +37,29 @@ const DropdownComponent = ({ forecastData }) => {
   const formattedDates = getUniqueDates(forecastData);
 
   return (
-    <div className={styles.dropdownContainer}>
-      <div className={styles.header}>
+    <section className={styles.dropdownContainer}>
+      <header className={styles.header}>
         <h2>5-day Forecast</h2>
-      </div>
+      </header>
       <div className={styles.items}>
         {formattedDates.map((date, index) => (
           <React.Fragment key={index}>
-            <div className={styles.item} onClick={() => toggleDropdown(index)}>
-              <div className={styles.date}>{date}</div>
+            <article className={styles.item} onClick={() => toggleDropdown(index)}>
+              <time className={styles.date}>{date}</time>
               <div className={styles.toggleButton}>
                 <Image
-                  src={
-                    openIndex === index
-                      ? "/image/DownIcons.png"
-                      : "/image/UpIcons.png"
-                  }
+                  src={openIndex === index ? "/image/DownIcons.png" : "/image/UpIcons.png"}
                   alt="Toggle Icon"
                   width={24}
                   height={24}
                 />
               </div>
-            </div>
+            </article>
             {openIndex === index &&
               forecastData
                 .filter((item) => {
                   const itemDate = new Date(item.dt_txt);
-                  const formattedItemDate = itemDate.toLocaleDateString(
-                    "en-US",
-                    { month: "short", day: "numeric" },
-                  );
-                  return formattedItemDate === date;
+                  return itemDate.toLocaleDateString("en-US", { month: "short", day: "numeric" }) === date;
                 })
                 .map((weather, idx) => (
                   <div key={idx} className={styles.dropdownContent}>
@@ -79,26 +71,20 @@ const DropdownComponent = ({ forecastData }) => {
                       className={styles.weatherIcon}
                     />
                     <div className={styles.time}>
-                      {new Date(weather.dt_txt)
-                        .toLocaleTimeString("en-US", {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                          hour12: true,
-                        })
-                        .toLowerCase()}
+                      {new Date(weather.dt_txt).toLocaleTimeString("en-US", {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true,
+                      }).toLowerCase()}
                     </div>
-                    <div className={styles.weatherText}>
-                      {weather.weather[0].description}
-                    </div>
-                    <div className={styles.temperature}>
-                      {`${weather.main.temp.toFixed(1)}℃`}
-                    </div>
+                    <div className={styles.weatherText}>{weather.weather[0].description}</div>
+                    <div className={styles.temperature}>{`${weather.main.temp.toFixed(1)}℃`}</div>
                   </div>
                 ))}
           </React.Fragment>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
