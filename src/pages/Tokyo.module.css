@@ -1,5 +1,5 @@
 .pageContainer {
-  background-color: #FAF7F5;
+  background-color: #faf7f5;
   min-height: 100vh;
 }
 
@@ -12,7 +12,7 @@
 
 @media (min-width: 800px) and (max-width: 1279px) {
   .headerContainer {
-    width: 100%; 
+    width: 100%;
     margin: 0 auto;
   }
 }
@@ -26,8 +26,8 @@
 
 .imageContainer {
   margin-top: 50px;
-  display: flex; 
-  justify-content: center; 
+  display: flex;
+  justify-content: center;
 }
 
 .title {
@@ -37,7 +37,7 @@
   line-height: 44px;
   letter-spacing: -0.6px;
   text-align: center;
-  color: #3D3D3D;
+  color: #3d3d3d;
   margin-top: 20px;
 }
 

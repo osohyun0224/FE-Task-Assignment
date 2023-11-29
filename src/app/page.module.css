@@ -1,5 +1,5 @@
 .container {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   text-align: center;
   padding: 50px 20px;
   height: 100vh;
@@ -10,7 +10,7 @@
 }
 
 .title {
-  font-family: 'Pretendard', sans-serif;
+  font-family: "Pretendard", sans-serif;
   font-size: 82px;
   line-height: 90px;
   letter-spacing: -0.6px;
@@ -18,25 +18,26 @@
 }
 
 .welcome {
-  color: #3D3D3D;
+  color: #3d3d3d;
   font-weight: 900;
 }
 
 .appName {
-  color: #FF0045;
+  color: #ff0045;
   font-weight: 700;
 }
 
 .description {
-  font-family: 'Pretendard', sans-serif;
+  font-family: "Pretendard", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  color: #8B8B8B;
+  color: #8b8b8b;
   margin-top: 20px;
 }
 
-.welcome, .appName {
+.welcome,
+.appName {
   display: block;
 }
 
@@ -49,6 +50,6 @@
 
 .imageContainer {
   margin-top: 50px;
-  display: flex; 
-  justify-content: center; 
+  display: flex;
+  justify-content: center;
 }

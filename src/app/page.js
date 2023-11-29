@@ -1,10 +1,10 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import styles from './page.module.css';
-import Button from '../components/Button';
+import Image from "next/image";
+import Link from "next/link";
+import styles from "./page.module.css";
+import Button from "../components/Button";
 
 export default function Main() {
-  const cities = ['Seoul', 'Tokyo', 'Paris', 'London'];
+  const cities = ["Seoul", "Tokyo", "Paris", "London"];
 
   return (
     <main className={styles.container}>
@@ -16,17 +16,19 @@ export default function Main() {
         Choose a city from the list below to check the weather.
       </p>
       <div className={styles.buttonsContainer}>
-        {cities.map(city => (
+        {cities.map((city) => (
           <Link key={city} href={`/${city}`} passHref>
-            <a><Button text={city} /></a>
+            <a>
+              <Button text={city} />
+            </a>
           </Link>
         ))}
       </div>
       <div className={styles.imageContainer}>
         <Image
-          src="/image/img.png" 
+          src="/image/img.png"
           alt="Main Background"
-          width={430} 
+          width={430}
           height={321}
           layout="intrinsic"
         />

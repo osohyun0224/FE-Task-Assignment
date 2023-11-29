@@ -1,14 +1,24 @@
-import styles from './Header.module.css';
-import Image from 'next/image';
+import styles from "./Header.module.css";
+import Image from "next/image";
 
-const Header = ({ date, location, population, temperature, feelsLike, weatherDescription, windSpeed, humidity, weatherIconUrl }) => {
+const Header = ({
+  date,
+  location,
+  population,
+  temperature,
+  feelsLike,
+  weatherDescription,
+  windSpeed,
+  humidity,
+  weatherIconUrl,
+}) => {
   return (
     <div className={styles.header}>
       <div className={styles.weatherIcon}>
         <Image
-          src={weatherIconUrl || '/image/default-icon.png'}
+          src={weatherIconUrl || "/image/default-icon.png"}
           alt="Weather Icon"
-          width={80} 
+          width={80}
           height={80}
           layout="intrinsic"
         />

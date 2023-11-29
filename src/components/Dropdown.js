@@ -16,7 +16,7 @@ const DropdownComponent = ({ forecastData }) => {
   const getUniqueDates = (forecast) => {
     const today = new Date();
     const uniqueDates = [];
-  
+
     forecast.forEach((item) => {
       const forecastDate = new Date(item.dt_txt);
       if (forecastDate > today) {
@@ -24,16 +24,15 @@ const DropdownComponent = ({ forecastData }) => {
           month: "short",
           day: "numeric",
         });
-  
+
         if (uniqueDates.indexOf(formattedDate) === -1) {
           uniqueDates.push(formattedDate);
         }
       }
     });
-  
+
     return uniqueDates.slice(0, 5);
   };
-  
 
   const formattedDates = getUniqueDates(forecastData);
 
@@ -66,7 +65,7 @@ const DropdownComponent = ({ forecastData }) => {
                   const itemDate = new Date(item.dt_txt);
                   const formattedItemDate = itemDate.toLocaleDateString(
                     "en-US",
-                    { month: "short", day: "numeric" }
+                    { month: "short", day: "numeric" },
                   );
                   return formattedItemDate === date;
                 })
