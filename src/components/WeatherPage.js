@@ -4,8 +4,8 @@ import Image from 'next/image';
 import styles from './WeatherPage.module.css';
 import { fetchWeather, fetchForecast } from '../api/api';
 
-const Header = dynamic(() => import("../components/Header"));
-const Dropdown = dynamic(() => import("../components/Dropdown"));
+const Header = dynamic(() => import("./Header"));
+const Dropdown = dynamic(() => import("./Dropdown"));
 
 const getPopulation = (city) => {
   const populations = {
