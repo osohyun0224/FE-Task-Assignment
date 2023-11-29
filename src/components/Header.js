@@ -33,7 +33,9 @@ const Header = ({
         {temperature}℃
         <div className={styles.weatherDetails}>
           <p className={styles.feelsLike}>{feelsLike}</p>
+          <span>&nbsp;</span>
           <p className={styles.additionalInfo}>{windSpeed}</p>
+          <span>&nbsp;</span>
           <p className={styles.additionalInfo}>{humidity}</p>
         </div>
       </div>
