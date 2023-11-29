@@ -37,3 +37,5 @@ npm run dev
 
 ## ✅ 과제 수행 중 공부한 내용
 - 아래는 제가 이번 과제를 수행하면서 구현을 위해 모르는 기술에 대해서 리서치하고 구현한 모든 과정을 잘 표현할 수 있는 자료를 정리한 것입니다.
+
+[Go to Notion](https://osohyun.notion.site/dd58c748e7b848ebbe99573d7767ccec?pvs=4)
