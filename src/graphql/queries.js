@@ -13,3 +13,13 @@ export const GET_CURRENT_WEATHER = gql`
     }
   }
 `;
+
+export const GET_FORECAST = gql`
+  query GetForecast($city: String!) {
+    getForecast(city: $city) {
+      date
+      temperature
+      description
+    }
+  }
+`;
