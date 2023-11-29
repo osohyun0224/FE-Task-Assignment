@@ -1,4 +1,4 @@
-const axios = require('axios');
+const axios = require("axios");
 
 const API_KEY = process.env.NEXT_PUBLIC_WEATHER_KEY;
 const BASE_URL = "https://api.openweathermap.org/data/2.5";
@@ -24,7 +24,7 @@ const resolvers = {
           description: data.weather[0].description,
           windSpeed: data.wind.speed,
           humidity: data.main.humidity,
-          weatherIconUrl: `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+          weatherIconUrl: `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
         };
       } catch (error) {
         console.error("Error fetching current weather data:", error);
@@ -45,7 +45,7 @@ const resolvers = {
           date: new Date(item.dt * 1000).toISOString(),
           temperature: item.main.temp,
           description: item.weather[0].description,
-          weatherIconUrl: `https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`
+          weatherIconUrl: `https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`,
         }));
 
         return forecastData.slice(0, 5);

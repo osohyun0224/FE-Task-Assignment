@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import dynamic from 'next/dynamic';
-import Image from 'next/image';
-import styles from './WeatherPage.module.css';
-import { fetchWeather, fetchForecast } from '../api/api';
+import React, { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+import Image from "next/image";
+import styles from "./WeatherPage.module.css";
+import { fetchWeather, fetchForecast } from "../api/api";
 
 const Header = dynamic(() => import("./Header"));
 const Dropdown = dynamic(() => import("./Dropdown"));
@@ -15,7 +15,7 @@ const getPopulation = (city) => {
     London: 8982000,
   };
 
-  return populations[city] || 'Unknown';
+  return populations[city] || "Unknown";
 };
 
 const WeatherPage = ({ city }) => {
@@ -77,7 +77,13 @@ const WeatherPage = ({ city }) => {
   return (
     <div className={styles.pageContainer}>
       <div className={styles.imageContainer}>
-        <Image src="/image/img.png" alt="Main Background" width={68} height={51} layout="intrinsic" />
+        <Image
+          src="/image/img.png"
+          alt="Main Background"
+          width={68}
+          height={51}
+          layout="intrinsic"
+        />
       </div>
       <h1 className={styles.title}>Weather Information for {city}</h1>
       <div className={styles.headerContainer}>
